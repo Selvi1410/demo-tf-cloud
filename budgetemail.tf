@@ -1,15 +1,8 @@
 
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "4.15.0"
-    }
-  }
-}
-
 provider "aws" {
-  # Configuration options
+region = "ap-south-1"
+access_key = "AKIATHPHZNTBLINRW4JE"
+secret_key = "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"
 }
 
 resource "aws_budgets_budget" "ec2" {
