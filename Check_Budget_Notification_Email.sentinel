@@ -7,10 +7,13 @@ allbg = filter tfplan.resource_changes as _, rc {
         
     }
 
-    print (allbg)
+    email = 0
+    for allbg as _, bg {
+        print (bg["change"]["after"]["notification"][0]["subsribers_email_addresses"])
+        emails = length(bg["change"]["after"]["notification"][0]["subsribers_email_addresses"])
+    }
 
     main = rule {
-        false
+        email >= 2
 
     }
-    
