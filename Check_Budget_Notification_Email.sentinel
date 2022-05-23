@@ -5,12 +5,12 @@ allbg = filter tfplan.resource_changes as _, rc {
     (rc.change.actions contains "create" or   rc.change.actions contains "update" or
     rc.change.actions contains "read" or rc.change.actions contains "no-op" 
     }
-    emails = 0
-    for allbg as _, bg {
+emails = 0
+for allbg as _, bg {
         print (bg["change"]["after"]["notification"][0]["subscribers_email_addresses"])
         emails = length(bg["change"]["after"]["notification"][0]["subscribers_email_addresses"])
-    }
-
+        }
+    
     main = rule {
         emails >= 2
 
